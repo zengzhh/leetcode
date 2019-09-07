@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class _003_LongestSubstringWithoutRepeatingCharacters {
 
@@ -15,6 +16,25 @@ public class _003_LongestSubstringWithoutRepeatingCharacters {
             }
             map.put(s.charAt(i), i);
             max = Math.max(max, i - j + 1);
+        }
+        return max;
+    }
+
+    public int lengthOfLongestSubstring2(String s) {
+        if (s.length() == 0) {
+            return 0;
+        }
+        HashSet<Character> set = new HashSet<>();
+        int max = 0;
+        // sub: j~i
+        int i = 0, j = 0;
+        while (i < s.length()) {
+            if (set.add(s.charAt(i))) {
+                max = Math.max(max, i - j + 1);
+                i++;
+            } else {
+                set.remove(s.charAt(j++));
+            }
         }
         return max;
     }
