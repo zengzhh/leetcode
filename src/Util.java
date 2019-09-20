@@ -23,4 +23,11 @@ public class Util {
             System.out.println("\"null\"");
         }
     }
+
+    public static void printNums(int[] nums) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            System.out.print(nums[i] + " ");
+        }
+        System.out.println(nums[nums.length - 1]);
+    }
 }
