@@ -43,4 +43,28 @@ public class Util {
             printNums(matrix[i]);
         }
     }
+
+    public static void printTreeNodeInorder(TreeNode node) {
+        if (node == null)
+            return;
+        printTreeNodeInorder(node.left);
+        System.out.print(node.val + " ");
+        printTreeNodeInorder(node.right);
+    }
+
+    public static void printTreeNodePreorder(TreeNode node) {
+        if (node == null)
+            return;
+        System.out.print(node.val + " ");
+        printTreeNodeInorder(node.left);
+        printTreeNodeInorder(node.right);
+    }
+
+    public static void printTreeNodePostorder(TreeNode node) {
+        if (node == null)
+            return;
+        printTreeNodeInorder(node.left);
+        printTreeNodeInorder(node.right);
+        System.out.print(node.val + " ");
+    }
 }
