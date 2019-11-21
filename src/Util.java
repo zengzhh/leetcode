@@ -56,15 +56,15 @@ public class Util {
         if (node == null)
             return;
         System.out.print(node.val + " ");
-        printTreeNodeInorder(node.left);
-        printTreeNodeInorder(node.right);
+        printTreeNodePreorder(node.left);
+        printTreeNodePreorder(node.right);
     }
 
     public static void printTreeNodePostorder(TreeNode node) {
         if (node == null)
             return;
-        printTreeNodeInorder(node.left);
-        printTreeNodeInorder(node.right);
+        printTreeNodePostorder(node.left);
+        printTreeNodePostorder(node.right);
         System.out.print(node.val + " ");
     }
 }
