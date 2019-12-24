@@ -44,6 +44,24 @@ public class Util {
         }
     }
 
+    public static TreeNode createTreeNode(Integer[] array) {
+        return createTreeNodeByArray(array, 0);
+    }
+
+    private static TreeNode createTreeNodeByArray(Integer[] array, int index) {
+        TreeNode root = null;
+        if (index < array.length) {
+            Integer val = array[index];
+            if (val == null) {
+                return null;
+            }
+            root = new TreeNode(val);
+            root.left = createTreeNodeByArray(array, 2 * index + 1);
+            root.right = createTreeNodeByArray(array, 2 * index + 2);
+        }
+        return root;
+    }
+
     public static void printTreeNodeInorder(TreeNode node) {
         if (node == null)
             return;
