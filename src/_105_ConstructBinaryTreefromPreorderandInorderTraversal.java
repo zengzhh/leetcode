@@ -20,14 +20,15 @@ public class _105_ConstructBinaryTreefromPreorderandInorderTraversal {
         int rootVal = preorder[preLeft];
         TreeNode root = new TreeNode(rootVal);
         int pIndex = map.get(preorder[preLeft]);
-        root.left = buildTree(preorder, preLeft + 1, pIndex - inLeft + preLeft, map, inLeft, pIndex - 1);
-        root.right = buildTree(preorder, pIndex - inLeft + preLeft + 1, preRight, map, pIndex + 1, inRight);
+        root.left = buildTree(preorder, preLeft + 1, preLeft + pIndex - inLeft, map, inLeft, pIndex - 1);
+        root.right = buildTree(preorder, preLeft + pIndex - inLeft + 1, preRight, map, pIndex + 1, inRight);
         return root;
     }
 
     public static void main(String[] args) {
         int[] preorder = {3, 9, 20, 15, 7};
         int[] inorder = {9, 3, 15, 20, 7};
+//        int[] postorder = {9, 15, 7, 20, 3};
         TreeNode root = new _105_ConstructBinaryTreefromPreorderandInorderTraversal().buildTree(preorder, inorder);
         Util.printTreeNodePostorder(root);
     }
