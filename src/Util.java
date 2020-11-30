@@ -66,14 +66,14 @@ public class Util {
         if (node == null)
             return;
         printTreeNodeInorder(node.left);
-        System.out.print(node.val + " ");
+        System.out.print(node.val + ", ");
         printTreeNodeInorder(node.right);
     }
 
     public static void printTreeNodePreorder(TreeNode node) {
         if (node == null)
             return;
-        System.out.print(node.val + " ");
+        System.out.print(node.val + ", ");
         printTreeNodePreorder(node.left);
         printTreeNodePreorder(node.right);
     }
@@ -83,6 +83,6 @@ public class Util {
             return;
         printTreeNodePostorder(node.left);
         printTreeNodePostorder(node.right);
-        System.out.print(node.val + " ");
+        System.out.print(node.val + ", ");
     }
 }
