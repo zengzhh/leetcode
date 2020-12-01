@@ -31,13 +31,6 @@ public class Util {
         System.out.println(nums[nums.length - 1]);
     }
 
-    public static void printBools(boolean[] nums) {
-        for (int i = 0; i < nums.length - 1; i++) {
-            System.out.print(nums[i] + " ");
-        }
-        System.out.println(nums[nums.length - 1]);
-    }
-
     public static void printMatrix(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
             printNums(matrix[i]);
@@ -84,5 +77,23 @@ public class Util {
         printTreeNodePostorder(node.left);
         printTreeNodePostorder(node.right);
         System.out.print(node.val + ", ");
+    }
+
+    public static Node createNode(Integer[] array) {
+        return createNodeByArray(array, 0);
+    }
+
+    private static Node createNodeByArray(Integer[] array, int index) {
+        Node root = null;
+        if (index < array.length) {
+            Integer val = array[index];
+            if (val == null) {
+                return null;
+            }
+            root = new Node(val);
+            root.left = createNodeByArray(array, 2 * index + 1);
+            root.right = createNodeByArray(array, 2 * index + 2);
+        }
+        return root;
     }
 }
